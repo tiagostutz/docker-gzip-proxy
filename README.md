@@ -12,7 +12,7 @@ version: '3.7'
 
 services:
   http-proxy:
-    image: tiagostutz/simple-gzip-proxy
+    image: tiagostutz/simple-gzip-proxy:0.2.0
     ports:
       - "4480:80"
     environment:  

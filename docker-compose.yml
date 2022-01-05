@@ -2,12 +2,15 @@ version: '3.7'
 
 services:
   http-proxy:
-    image: tiagostutz/simple-gzip-proxy
-    build: .
+    image: tiagostutz/simple-gzip-proxy:0.2.0
+    build: 
+      context: .
+      args:
+        ENABLED_MODULES: headers-more-nginx-module
     ports:
       - "4480:80"
     environment:  
-      - PROXY_URI=http://whoami:80
+      - PROXY_URI=http://host.docker.internal:4466
   
   whoami:
     image: containous/whoami

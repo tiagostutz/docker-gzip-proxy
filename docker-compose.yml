@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   http-proxy:
-    image: tiagostutz/simple-gzip-proxy:0.2.0
+    image: tiagostutz/simple-gzip-proxy:0.2.1
     build: 
       context: .
       args:
@@ -11,6 +11,7 @@ services:
       - "4480:80"
     environment:  
       - PROXY_URI=http://host.docker.internal:4466
+      - CORS_ORIGIN=*
   
   whoami:
     image: containous/whoami

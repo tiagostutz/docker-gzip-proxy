@@ -17,6 +17,7 @@ services:
       - "4480:80"
     environment:  
       - PROXY_URI=http://whoami:80
+      - CORS_ORIGIN=*
   
   whoami:
     image: containous/whoami
@@ -48,6 +49,13 @@ curl 'http://localhost:4480/' -I -H 'Accept: application/xhtml+xml,application/x
 Check the response headers. In the second one there is the gzip header `Content-Encoding: gzip`
 
 You can also check this with your browser by opening the URL directly and inspecting the response headers.
+
+## Environment variables
+
+Pretty self explanatory
+
+- `PROXY_URI`: The URI to proxy to.
+- `CORS_ORIGIN`: The value of the Access-Control-Allow-Origin header
 
 ### Credits
 
